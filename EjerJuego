@@ -1,0 +1,98 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Juego</title>
+       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+        
+        <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="css/bootstrap.css" type="text/css"/>
+
+</head>
+<body>
+<nav class="navbar navbar-inverse">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="/home/dan/Escritorio/CursoEmp/GitHub/dantezunino.github.io/index">Dante Zunino</a>
+        </div>
+        </div>
+    </nav>
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-6" background-color="grey">
+    <h3>Juego</h3>
+    </div>
+    <div class="col-sm-6">
+     <h3>Resultados</h3>
+     <p id="coso"></p>
+     <p id="cenC"></p>
+     <p id="decC"></p>
+     <p id="uniC"></p>
+     <h1 id="gan"></h1>
+    </div>
+  </div>
+</div>
+
+<ul class="list-group">
+<li class="list-group-item list-group-item-info">Las reglas del juego son simples:</li>
+<li class="list-group-item list-group-item-warning">Se ingresa un número, del 0 al 9, por dígito.</li>
+<li class="list-group-item list-group-item-warning">No se puede repetir número entre la centena, la decena o la unidad.</li>
+<li class="list-group-item list-group-item-warning">Ganás cuando adivinás el número</li>
+</ul>
+
+<form name="formu" class="form-inline">
+<div class="form-group"><strong>Centena: </strong><input type="number" class="form-control" name="centena" id="cen" min="1" max="9" required></div>
+<div class="form-group"><strong>Decena: </strong><input type="number" class="form-control" name="decena" id="dec" min="1" max="9" required></div>
+<div class="form-group"><strong>Unidad: </strong><input type="number" class="form-control" name="unidad" id="uni" min="1" max="9" required></div>
+</form>
+
+
+
+
+<script>
+function alfa(){
+var cenX = document.formu.cen.value;
+var decX = document.formu.dec.value;
+var uniX = document.formu.uni.value;
+var cenV = false;
+var decV = false;
+var uniV = false;
+
+if(cenX!=decX&&cenX!=uniX&&decX!=uniX)
+{
+if(cenX!=1){document.getElementById("cenC").innerHTML="Centena: No chabón/a." + "<br>"; document.getElementById("coso").innerHTML="";}
+if(cenX==1){cenV=true; document.getElementById("cenC").innerHTML="Centena: Bien ahí chabón/a."; document.getElementById("coso").innerHTML="";}
+if(decX!=6){document.getElementById("decC").innerHTML="Decena: No chabón/a." + "<br>"; document.getElementById("coso").innerHTML="";}
+if(decX==6){decV=true; document.getElementById("decC").innerHTML="Decena: Bien ahí chabón/a."; document.getElementById("coso").innerHTML="";}
+if(uniX!=2){document.getElementById("uniC").innerHTML="Unidad: No chabón/a." + "<br>"; document.getElementById("coso").innerHTML="";}
+if(uniX==2){uniV=true; document.getElementById("uniC").innerHTML="Unidad: Bien ahí chabón/a."; document.getElementById("coso").innerHTML="";}
+if(cenV==true && decV==true && uniV==true){document.getElementById("gan").innerHTML="Ganaste guacho/a!!!";}
+}
+
+else{alert("Así no va. Leé las reglas.");}
+}
+
+function reset(){
+document.getElementById("coso").innerHTML="";
+document.getElementById("decC").innerHTML="";
+document.getElementById("cenC").innerHTML="";
+document.getElementById("uniC").innerHTML="";
+document.getElementById("gan").innerHTML="";}
+
+</script>
+<p></p>
+<input type="button" value="Confirmar" onclick="alfa()">
+<input type="button" value="Borrar" onclick="reset()">
+
+
+</body>
+</html>
+
+
+
+
+<!-- El número es 162 -->
+
